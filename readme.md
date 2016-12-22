@@ -4,7 +4,7 @@ Working on the 30 day Javascript Challenge from javascript30.com
 
 ##Progress
 
-01 - in progress
+01 - Finished 
 02 - not yet started
 03 - not yet started
 04 - not yet started
