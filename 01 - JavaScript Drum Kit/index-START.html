@@ -58,9 +58,45 @@
   <audio data-key="76" src="sounds/tink.wav"></audio>
 
 <script>
+
 document.addEventListener("keydown", function(event)
 {
-  console.log(event.which);
+  var box = document.querySelector("div[data-key='" + event.which + "']");
+  box.classList.add('playing');
+  //box.classList.remove('playing');
+  //document.querySelector("div[data-key='65']").play();
+
+  switch (event.which)
+  {
+    case 65:
+      console.log("A was pressed");
+      break;
+    case 83:
+      console.log("S was pressed");
+      break;
+    case 68:
+      console.log("D was pressed");
+      break;
+    case 70:
+      console.log("F was pressed");
+      break;
+    case 71:
+      console.log("G was pressed");
+      break;
+    case 72:
+      console.log("H was pressed");
+      break;
+    case 74:
+      console.log("J was pressed");
+      break;
+    case 75:
+      console.log("K was pressed");
+      break;
+    case 76:
+      console.log("L was pressed");
+      break;
+  }
+
 });
 
 </script>
