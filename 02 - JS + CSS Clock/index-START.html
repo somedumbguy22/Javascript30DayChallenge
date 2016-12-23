@@ -70,7 +70,26 @@
   </style>
 
   <script>
-    
+
+    var secondHand = document.querySelector('.second-hand');
+    var minuteHand = document.querySelector('.minute-hand');
+    var hourHand = document.querySelector('.hour-hand');;
+
+    function getCurrentDateTime()
+    {
+      var currentDate = new Date();
+      var currentSeconds = currentDate.getSeconds();
+      var currentSecondsInDegrees = (currentSeconds / 60) * 360;
+
+      moveSecondHand(currentSecondsInDegrees);
+    }
+
+    function moveSecondHand(degrees)
+    {
+      secondHand.style.transform = 'rotate(' + degrees + 'deg)';
+    }
+
+    setInterval(getCurrentDateTime, 1000);
 
   </script>
 
