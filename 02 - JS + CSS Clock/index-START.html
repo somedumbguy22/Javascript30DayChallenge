@@ -72,24 +72,56 @@
   <script>
 
     var secondHand = document.querySelector('.second-hand');
-    var minuteHand = document.querySelector('.minute-hand');
+    var minuteHand = document.querySelector('.min-hand');
     var hourHand = document.querySelector('.hour-hand');;
 
     function getCurrentDateTime()
     {
       var currentDate = new Date();
-      var currentSeconds = currentDate.getSeconds();
-      var currentSecondsInDegrees = (currentSeconds / 60) * 360;
-
-      moveSecondHand(currentSecondsInDegrees);
+      return currentDate;
     }
 
-    function moveSecondHand(degrees)
+    function moveSecondHand()
     {
-      secondHand.style.transform = 'rotate(' + degrees + 'deg)';
+      currentDate = getCurrentDateTime();
+
+      var currentSeconds = currentDate.getSeconds();
+      var currentSecondsInDegrees = ((currentSeconds / 60) * 360) + 90; //need a base offset due to original position
+
+      secondHand.style.transform = 'rotate(' + currentSecondsInDegrees + 'deg)';
     }
 
-    setInterval(getCurrentDateTime, 1000);
+    function moveMinuteHand()
+    {
+      currentDate = getCurrentDateTime();
+
+      var currentMinutes = currentDate.getMinutes();
+      var currentMinutesInDegrees = ((currentMinutes / 60) * 360) + 90; //need a base offset due to original position
+
+      minuteHand.style.transform = 'rotate(' + currentMinutesInDegrees + 'deg)';
+    }
+
+    function moveHourHand()
+    {
+      currentDate = getCurrentDateTime();
+
+      var currentHour = currentDate.getHours();
+      var currentHoursInDegrees = ((currentHour / 60) * 360);
+
+      hourHand.style.transform = 'rotate(' + currentHoursInDegrees + 'deg)';
+    }
+
+    function setIntialHandPositions()
+    {
+      moveHourHand();
+      moveMinuteHand();
+      moveSecondHand();
+    }
+
+    setIntialHandPositions();
+    setInterval(moveSecondHand, 1000);
+    setInterval(moveMinuteHand, 60000);
+    setInterval(moveHourHand, 3600000);
 
   </script>
 
