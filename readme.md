@@ -5,8 +5,8 @@ Working on the 30 day Javascript Challenge from javascript30.com
 ##Progress
 
 01 - Finished 
-02 - In Progress
-03 - not yet started
+02 - Finished
+03 - Work In Progress
 04 - not yet started
 05 - not yet started
 06 - not yet started
